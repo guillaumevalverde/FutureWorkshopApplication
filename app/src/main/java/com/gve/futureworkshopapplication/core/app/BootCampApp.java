@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.facebook.stetho.Stetho;
+import com.gve.futureworkshopapplication.BuildConfig;
 
 /**
  * Created by gve.
@@ -30,6 +31,7 @@ public class BootCampApp extends Application {
     public void onCreate() {
         getComponent().inject(this);
         super.onCreate();
-        Stetho.initializeWithDefaults(this);
+        if (BuildConfig.DEBUG)
+            Stetho.initializeWithDefaults(this);
     }
 }

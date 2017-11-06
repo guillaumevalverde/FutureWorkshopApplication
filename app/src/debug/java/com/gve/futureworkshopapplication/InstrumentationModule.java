@@ -4,7 +4,8 @@ import android.content.Context;
 import android.util.Log;
 
 import com.facebook.stetho.okhttp3.StethoInterceptor;
-import com.gve.bootcampproject.injection.qualifiers.ForApplication;
+import com.gve.futureworkshopapplication.core.app.NetworkModule;
+import com.gve.futureworkshopapplication.core.injection.qualifiers.ForApplication;
 import com.readystatesoftware.chuck.ChuckInterceptor;
 
 import java.util.Collections;
@@ -25,7 +26,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 
 // don't work with IntoSet when we inject in Application
 @Module
-class InstrumentationModule {
+public class InstrumentationModule {
 
     @Provides
     @Singleton

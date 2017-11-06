@@ -2,6 +2,8 @@ package com.gve.futureworkshopapplication.core.app;
 
 import android.app.Application;
 
+import com.gve.futureworkshopapplication.loginuser.data.UserComponent;
+
 import java.util.Map;
 
 import javax.inject.Provider;
@@ -33,5 +35,6 @@ public interface BootCampComponent {
     Map<Class<?>, Provider<SubcomponentBuilder>> subComponentBuilders();
 
     void inject(BootCampApp app);
+    UserComponent.Builder userComponentBuilder();
 
 }
