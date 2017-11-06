@@ -1,0 +1,5 @@
+ext {
+    endpoints = [
+            IMAGE_API_URL = "\"https://spreadsheets.google.com\""
+    ]
+}
