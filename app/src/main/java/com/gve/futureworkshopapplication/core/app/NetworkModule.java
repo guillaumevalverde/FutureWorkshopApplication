@@ -1,12 +1,10 @@
 package com.gve.futureworkshopapplication.core.app;
 
-import android.content.Context;
-
 import com.google.gson.Gson;
 import com.gve.futureworkshopapplication.BuildConfig;
 import com.gve.futureworkshopapplication.InstrumentationModule;
-import com.gve.futureworkshopapplication.core.injection.qualifiers.GithubService;
-import com.gve.futureworkshopapplication.core.injection.qualifiers.ImagesService;
+import com.gve.futureworkshopapplication.userarticle.data.ApiNetworkService;
+import com.gve.futureworkshopapplication.userarticle.data.RetrofitApiService;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.lang.annotation.Retention;
@@ -42,8 +40,7 @@ public final class NetworkModule {
 
     @Provides
     @Singleton
-    @GithubService
-    static Retrofit provideGithubApi(@Named(API_URL) String baseUrl, Gson gson, OkHttpClient client) {
+    static Retrofit provideApi(@Named(API_URL) String baseUrl, Gson gson, OkHttpClient client) {
         return new Retrofit.Builder().addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                                      .addConverterFactory(GsonConverterFactory.create(gson))
                                      .client(client)
@@ -52,20 +49,9 @@ public final class NetworkModule {
     }
 
     @Provides
-    @Singleton
-    @ImagesService
-    static Retrofit provideApi(@Named(IMAGES_URL) String baseUrl, Gson gson, OkHttpClient client) {
-        return new Retrofit.Builder().addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .client(client)
-                .baseUrl(baseUrl)
-                .build();
-    }
-
-    @Provides
-    @Named(IMAGES_URL)
-    static String provideFileWithImageUrl() {
-        return BuildConfig.IMAGE_API_URL;
+    @Named(API_URL)
+    static String provideFutureWorkshopUrl() {
+        return BuildConfig.API_URL;
     }
 
     @Provides
@@ -78,6 +64,12 @@ public final class NetworkModule {
         okBuilder.networkInterceptors().addAll(networkInterceptor);
 
         return okBuilder.build();
+    }
+
+    @Provides
+    @Singleton
+    static RetrofitApiService provideApiNetworkService(Retrofit retrofit){
+        return retrofit.create(RetrofitApiService.class);
     }
 
 }

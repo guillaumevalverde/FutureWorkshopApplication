@@ -1,4 +1,4 @@
-package com.gve.futureworkshopapplication.loginuser.injection;
+package com.gve.futureworkshopapplication.userarticle.presentation;
 
 import android.content.Context;
 
@@ -13,12 +13,12 @@ import dagger.Provides;
  */
 
 @Module
-public class LoginActivityModule {
+public class ListArticleActivityModule {
 
     @ForActivity
     private Context context;
 
-    public LoginActivityModule(Context context) {
+    public ListArticleActivityModule(Context context) {
         this.context = context;
     }
 

@@ -15,11 +15,6 @@ import dagger.MapKey;
 
 public class DaggerUtil {
 
-    @Scope
-    @Retention(RetentionPolicy.RUNTIME)
-    public @interface ActivityScope {
-    }
-
     // Needed only to create the above mapping
     @MapKey
     @Target({ElementType.METHOD}) @Retention(RetentionPolicy.RUNTIME)

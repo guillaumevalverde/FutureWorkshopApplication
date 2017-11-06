@@ -21,7 +21,6 @@ import dagger.Component;
         ActivityBindingModule.class, DataModule.class})
 public interface BootCampComponent {
 
-
     @Component.Builder
     interface Builder {
 

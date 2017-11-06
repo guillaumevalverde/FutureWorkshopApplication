@@ -11,4 +11,5 @@
     <dimen name="spacing_micro">2dp</dimen>
 
     <dimen name="image_card_padding">@dimen/spacing_tiny</dimen>
+    <dimen name="text_large">20sp</dimen>
 </resources>

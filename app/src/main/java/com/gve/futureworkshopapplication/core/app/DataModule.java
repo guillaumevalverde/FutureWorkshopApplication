@@ -1,12 +1,17 @@
 package com.gve.futureworkshopapplication.core.app;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 
+import com.google.gson.Gson;
 import com.gve.futureworkshopapplication.BuildConfig;
+import com.gve.futureworkshopapplication.core.data.ReactiveStore;
+import com.gve.futureworkshopapplication.core.data.SharedPreferenceStore;
 import com.gve.futureworkshopapplication.core.injection.qualifiers.ForApplication;
 import com.gve.futureworkshopapplication.loginuser.data.MockUserProvider;
 import com.gve.futureworkshopapplication.loginuser.data.UserAPI;
+import com.gve.futureworkshopapplication.userarticle.data.Article;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Singleton;
@@ -37,6 +42,15 @@ final class DataModule {
                 .build();
         Picasso.setSingletonInstance(picasso);
         return picasso;
+    }
+
+    @Provides
+    @Singleton
+    ReactiveStore<Article> provideSharedPrefStore(SharedPreferences sharedPreference,
+                                                  Gson gson) {
+        return new SharedPreferenceStore(sharedPreference,
+                "ARTICLE_LIST",
+                gson);
     }
 
     @Provides

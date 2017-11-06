@@ -1,6 +1,7 @@
 package com.gve.futureworkshopapplication.loginuser;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import com.gve.futureworkshopapplication.core.app.BootCampApp;
 import com.gve.futureworkshopapplication.loginuser.data.User;
 import com.gve.futureworkshopapplication.loginuser.injection.LoginActivityComponent;
 import com.gve.futureworkshopapplication.loginuser.injection.LoginActivityModule;
+import com.gve.futureworkshopapplication.userarticle.presentation.ListArticleActivity;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.squareup.picasso.Picasso;
@@ -115,6 +117,8 @@ public class LoginUserActivity  extends AppCompatActivity {
 
     private void goToNextActivity() {
         Log.v(TAG, "go to next activity");
+        Intent intent = new Intent(this, ListArticleActivity.class);
+        this.startActivity(intent);
     }
 
     public static class UserStateView {
