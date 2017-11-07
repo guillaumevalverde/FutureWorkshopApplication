@@ -12,4 +12,6 @@
 
     <dimen name="image_card_padding">@dimen/spacing_tiny</dimen>
     <dimen name="text_large">20sp</dimen>
+    <dimen name="text_normal">15sp</dimen>
+    <dimen name="text_small">12sp</dimen>
 </resources>

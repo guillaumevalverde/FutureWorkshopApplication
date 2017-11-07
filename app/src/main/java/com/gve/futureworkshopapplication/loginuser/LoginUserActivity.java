@@ -74,8 +74,8 @@ public class LoginUserActivity  extends AppCompatActivity {
                             () -> textInputEditText.getText().toString(),
                             username -> userManager.startSessionForUser(username))
                 .subscribe(this::handleUserState,
-                           error -> Log.e("gui", "error : " + error.getLocalizedMessage()),
-                           () -> Log.v("gui", "complete"));
+                           error -> Log.e(TAG, "error : " + error.getLocalizedMessage()),
+                           () -> Log.v(TAG, "complete"));
 
 
         ImageView imageView = findViewById(R.id.user_login_image);

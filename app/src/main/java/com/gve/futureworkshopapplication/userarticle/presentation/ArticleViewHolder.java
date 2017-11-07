@@ -1,6 +1,7 @@
 package com.gve.futureworkshopapplication.userarticle.presentation;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.gve.futureworkshopapplication.R;
+import com.gve.futureworkshopapplication.articledetail.DetailArticleActivity;
 import com.gve.futureworkshopapplication.core.injection.qualifiers.ForActivity;
 import com.gve.futureworkshopapplication.core.recyclerview.DisplayableItem;
 import com.gve.futureworkshopapplication.core.recyclerview.ViewHolderBinder;
@@ -32,6 +34,7 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder {
     private ImageView imageIV;
     private ProgressBar progressBar;
     private Picasso picasso;
+    private View card;
 
     private static final int RADIUS = 10;
     private static final int MARGIN = 0;
@@ -43,7 +46,7 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder {
         // Stores the itemView in a public final member variable that can be used
         // to access the context from any ViewHolder instance.
         super(itemView);
-
+        card = itemView;
         titleTV = itemView.findViewById(R.id.article_card_title);
         dateTV = itemView.findViewById(R.id.article_card_date);
         descriptionTV = itemView.findViewById(R.id.article_card_description);
@@ -81,6 +84,14 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder {
             imageIV.setImageDrawable(imageIV.getResources()
                     .getDrawable(R.drawable.rounded));
         }
+
+        card.setOnClickListener(click -> startNextActivity(article.id()));
+    }
+
+    private void startNextActivity(int id) {
+        Intent intent = new Intent(itemView.getContext(), DetailArticleActivity.class);
+        intent.putExtra(DetailArticleActivity.ARTICLE_ID, id);
+        itemView.getContext().startActivity(intent);
     }
 
     static class ArticleCardHolderFactory extends ViewHolderFactory {

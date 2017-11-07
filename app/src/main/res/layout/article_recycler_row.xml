@@ -59,10 +59,11 @@
             android:layout_toEndOf="@+id/article_card_frame_image"
             android:layout_toRightOf="@+id/article_card_frame_image"
             android:maxWidth="200dp"
-            android:ellipsize="end"
             android:padding="@dimen/image_card_padding"
             android:textSize="@dimen/text_large"
+            android:textStyle="bold"
             android:singleLine="true"
+            android:ellipsize="end"
             android:textColor="@color/colorPrimary"
             tools:text="Iphone 8 to come in" />
 

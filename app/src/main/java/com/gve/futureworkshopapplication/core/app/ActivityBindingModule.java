@@ -1,5 +1,6 @@
 package com.gve.futureworkshopapplication.core.app;
 
+import com.gve.futureworkshopapplication.articledetail.DetailArticleActivityComponent;
 import com.gve.futureworkshopapplication.core.launch.LaunchActivityComponent;
 import com.gve.futureworkshopapplication.loginuser.injection.LoginActivityComponent;
 import com.gve.futureworkshopapplication.userarticle.presentation.ListArticleActivityComponent;
@@ -15,8 +16,10 @@ import dagger.multibindings.IntoMap;
 @Module(subcomponents = {
         LoginActivityComponent.class,
         ListArticleActivityComponent.class,
-        LaunchActivityComponent.class
+        LaunchActivityComponent.class,
+        DetailArticleActivityComponent.class
 })
+
 public abstract class ActivityBindingModule {
 
     @Binds @IntoMap
@@ -31,5 +34,9 @@ public abstract class ActivityBindingModule {
     @Binds @IntoMap
     @DaggerUtil.SubcomponentKey(LaunchActivityComponent.Builder.class)
     public abstract SubcomponentBuilder listLaunchActivity(LaunchActivityComponent.Builder impl);
-}
 
+    @Binds @IntoMap
+    @DaggerUtil.SubcomponentKey(DetailArticleActivityComponent.Builder.class)
+    public abstract SubcomponentBuilder detailArticleActivity(DetailArticleActivityComponent.Builder impl);
+
+}
