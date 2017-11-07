@@ -19,7 +19,8 @@
             android:name=".LoginActivity"
             android:label="@string/app_name">
         </activity>
-        <activity android:name=".loginuser.LoginUserActivity" />
+        <activity android:name=".loginuser.LoginUserActivity"
+                  android:launchMode="singleTask"/>
         <activity android:name=".userarticle.presentation.ListArticleActivity" />
         <activity
             android:name=".core.launch.LaunchActivity"

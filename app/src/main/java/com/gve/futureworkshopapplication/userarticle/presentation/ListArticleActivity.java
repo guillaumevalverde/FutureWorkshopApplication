@@ -1,5 +1,7 @@
 package com.gve.futureworkshopapplication.userarticle.presentation;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -12,7 +14,11 @@ import android.widget.TextView;
 
 import com.gve.futureworkshopapplication.R;
 import com.gve.futureworkshopapplication.core.app.BootCampApp;
+import com.gve.futureworkshopapplication.core.injection.qualifiers.ForActivity;
 import com.gve.futureworkshopapplication.core.recyclerview.RecyclerViewAdapter;
+import com.gve.futureworkshopapplication.loginuser.LoginUserActivity;
+import com.gve.futureworkshopapplication.loginuser.UserManager;
+import com.gve.futureworkshopapplication.loginuser.data.User;
 import com.gve.futureworkshopapplication.userarticle.domain.ListArticleViewModel;
 
 import javax.inject.Inject;
@@ -33,6 +39,13 @@ public class ListArticleActivity extends AppCompatActivity {
     @Inject
     RecyclerViewAdapter adapter;
 
+    @Inject
+    UserManager userManager;
+
+    @Inject
+    @ForActivity
+    Context context;
+
     private CompositeDisposable disposable = new CompositeDisposable();
 
     @Override
@@ -45,9 +58,10 @@ public class ListArticleActivity extends AppCompatActivity {
         builder.activityModule(new ListArticleActivityModule(this)).build().inject(this);
 
         super.onCreate(savedInstanceState);
+        userManager.startUserSession();
         setContentView(R.layout.activity_list_article);
-
-        String textToolBar = this.getResources().getString(R.string.user_articles_news_feed, "username");
+        String userName = userManager.getUser().orDefault(() -> User.builder().name("userName").build()).name();
+        String textToolBar = this.getResources().getString(R.string.user_articles_news_feed, userName);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -57,22 +71,21 @@ public class ListArticleActivity extends AppCompatActivity {
         titleToolBar.setText(textToolBar);
 
         toolbar.setOnMenuItemClickListener(item -> {
-            Log.v(TAG, "log clickclick");
             switch (item.getItemId()) {
                 case R.id.action_log_out:
-                    Log.v(TAG, "log out");
+                    userManager.closeUserSession();
+                    Intent intent = new Intent(this, LoginUserActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    context.startActivity(intent);
                     return true;
 
                 default:
-                    // If we got here, the user's action was not recognized.
-                    // Invoke the superclass to handle it.
                     return false;
 
             }
         });
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        //logoutToolBar.setOnClickListener(click ->  Log.v(TAG, "log click"));
 
         RecyclerView.LayoutManager mLayoutManager
                 = new LinearLayoutManager(getApplicationContext());
@@ -88,7 +101,6 @@ public class ListArticleActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        Log.v(TAG, "create menu");
         getMenuInflater().inflate(R.menu.user_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }

@@ -9,6 +9,7 @@ import com.gve.futureworkshopapplication.loginuser.data.UserModule;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import polanski.option.Option;
 import timber.log.Timber;
 
 /**
@@ -21,8 +22,10 @@ public class UserManager {
     private UserComponent.Builder builder;
     private UserDataStore userDataStore;
     private UserComponent userComponent;
+    private User user;
 
-    public UserManager(UserAPI userAPI, UserDataStore userDataStore, UserComponent.Builder builder) {
+    public UserManager(UserAPI userAPI, UserDataStore userDataStore,
+                       UserComponent.Builder builder) {
         this.userAPI = userAPI;
         this.builder = builder;
         this.userDataStore = userDataStore;
@@ -38,15 +41,21 @@ public class UserManager {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-
     public boolean startUserSession() {
-        User user = userDataStore.getUser();
+        if (user != null)
+            return true;
+
+        user = userDataStore.getUser();
         if (user != null) {
             Timber.i("Session started, user: %s", user);
             userComponent = builder.userModule(new UserModule(user)).build();
             return true;
         }
         return false;
+    }
+
+    public Option<User> getUser() {
+        return Option.ofObj(user);
     }
 
     public UserComponent getUserComponent() {
