@@ -34,6 +34,7 @@ public interface BootCampComponent {
     Map<Class<?>, Provider<SubcomponentBuilder>> subComponentBuilders();
 
     void inject(BootCampApp app);
+
     UserComponent.Builder userComponentBuilder();
 
 }

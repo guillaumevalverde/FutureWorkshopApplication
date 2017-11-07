@@ -39,7 +39,7 @@ public class UserManager {
     }
 
 
-    private boolean startUserSession() {
+    public boolean startUserSession() {
         User user = userDataStore.getUser();
         if (user != null) {
             Timber.i("Session started, user: %s", user);
