@@ -6,6 +6,7 @@
     <string name="user_login_hint">Type your name</string>
     <string name="user_login_error_empty">please, type a username</string>
     <string name="user_login_error_no_user">Username incorrect</string>
+    <string name="user_articles_news_feed">%1$s\'s news feed </string>
 
 
     <!-- Strings related to login -->
@@ -20,4 +21,5 @@
         completions."
     </string>
     <string name="user_login_image_content_descrip">image in login activity</string>
+    <string name="user_menu_log_out">Log out</string>
 </resources>
