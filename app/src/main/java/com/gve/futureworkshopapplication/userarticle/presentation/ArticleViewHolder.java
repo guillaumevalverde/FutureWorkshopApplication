@@ -18,8 +18,11 @@ import com.gve.futureworkshopapplication.core.recyclerview.ViewHolderFactory;
 import com.gve.futureworkshopapplication.userarticle.data.Article;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import javax.inject.Inject;
+
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 public class ArticleViewHolder extends RecyclerView.ViewHolder {
 
@@ -29,6 +32,10 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder {
     private ImageView imageIV;
     private ProgressBar progressBar;
     private Picasso picasso;
+
+    private static final int RADIUS = 10;
+    private static final int MARGIN = 0;
+    private static final Transformation TRANSFORMATION = new RoundedCornersTransformation(RADIUS, MARGIN);
 
     // We also create a constructor that accepts the entire item row
     // and does the view lookups to find each subview
@@ -48,14 +55,15 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder {
     private void bind(@NonNull final Article article) {
         titleTV.setText(article.title());
         dateTV.setText(article.date());
-        descriptionTV.setText(article.content());
+        descriptionTV.setText(article.summary());
         if (!article.imageUrl().isEmpty()) {
             progressBar.setVisibility(View.VISIBLE);
             picasso.load(article.imageUrl())
-                    .placeholder(R.color.background_card)
+                    .placeholder(R.drawable.rounded)
                     .fit()
+                    .transform(TRANSFORMATION)
                     .centerCrop()
-                    .error(R.color.cardview_dark_background)
+                    .error(R.drawable.rounded)
                     .into(imageIV,  new Callback() {
 
                         @Override
@@ -71,7 +79,7 @@ public class ArticleViewHolder extends RecyclerView.ViewHolder {
         } else {
             progressBar.setVisibility(View.GONE);
             imageIV.setImageDrawable(imageIV.getResources()
-                    .getDrawable(R.color.background_card));
+                    .getDrawable(R.drawable.rounded));
         }
     }
 
