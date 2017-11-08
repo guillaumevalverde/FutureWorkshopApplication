@@ -3,6 +3,7 @@ package com.gve.futureworkshopapplication.articlelist.presentation;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,6 +26,7 @@ import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by gve on 31/10/2017.
@@ -60,6 +62,22 @@ public class ListArticleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         userManager.startUserSession();
         setContentView(R.layout.activity_list_article);
+        SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.list_article_pull_to_refresh);
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+                    disposable.add(
+                            listArticleViewModel.fetch()
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .subscribe(
+                                            () -> {
+                                                Log.v(TAG, "finish fetch");
+                                                swipeRefreshLayout.setRefreshing(false);
+                                            },
+                                            error -> {
+                                                Log.e(TAG, "error fetch");
+                                                swipeRefreshLayout.setRefreshing(false);
+                                            }));
+        });
+
         String userName = userManager.getUser().orDefault(() -> User.builder().name("userName").build()).name();
         String textToolBar = this.getResources().getString(R.string.user_articles_news_feed, userName);
 
@@ -94,8 +112,12 @@ public class ListArticleActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         disposable.add(
                 listArticleViewModel.getDisplayable()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(users -> adapter.update(users), e -> Log.e(TAG, e.getMessage())));
+                        .subscribeOn(Schedulers.computation())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(users -> {
+                            Log.v(TAG, "update adapter");
+                            adapter.update(users);
+                        }, e -> Log.e(TAG, e.getMessage())));
 
     }
 

@@ -36,7 +36,6 @@ public class ArticleRepo implements Repo<Article> {
 
     @Override
     public Completable fetch() {
-        Log.v("GVE", "call fetch");
         return fetcher.fetchArticleRawListData()
                 .flatMapObservable(Observable::fromIterable)
                 // map from raw to safe

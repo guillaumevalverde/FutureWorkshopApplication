@@ -11,7 +11,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import io.reactivex.Completable;
 import io.reactivex.Flowable;
+import io.reactivex.schedulers.Schedulers;
 
 
 /**
@@ -35,5 +37,9 @@ public class ListArticleViewModel {
     public Flowable<List<DisplayableItem>> getDisplayable() {
         return articleRepo.getStream()
                 .map(articleDisplayableMapper);
+    }
+
+    public Completable fetch() {
+        return articleRepo.fetch().subscribeOn(Schedulers.io());
     }
 }

@@ -3,6 +3,7 @@ package com.gve.futureworkshopapplication.core.data;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v4.util.Pair;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.gve.futureworkshopapplication.articlelist.data.Article;
@@ -26,6 +27,7 @@ public class SharedPreferenceStore implements ReactiveStore<Article> {
     private Gson gson;
     private BehaviorSubject<String> jsonPublish = BehaviorSubject.create();
     private final String keyInSharedPref;
+    private SharedPreferences.OnSharedPreferenceChangeListener listener;
 
     public SharedPreferenceStore(SharedPreferences sharedPreference,
                                  final String keyInSharedPred,
@@ -33,10 +35,11 @@ public class SharedPreferenceStore implements ReactiveStore<Article> {
         this.sharedPreferences = sharedPreference;
         this.gson = gson;
         this.keyInSharedPref = keyInSharedPred;
-        SharedPreferences.OnSharedPreferenceChangeListener listener = (prefs, key) -> jsonPublish
-                .onNext(sharedPreferences.getString(keyInSharedPred, JSON_EMPTY));
+        listener = (prefs, key) ->
+                jsonPublish
+                        .onNext(sharedPreferences.getString(keyInSharedPred, JSON_EMPTY));
         jsonPublish.onNext(sharedPreferences.getString(keyInSharedPred, JSON_EMPTY));
-        sharedPreference.registerOnSharedPreferenceChangeListener(listener);
+        sharedPreferences.registerOnSharedPreferenceChangeListener(listener);
     }
 
     @Override
