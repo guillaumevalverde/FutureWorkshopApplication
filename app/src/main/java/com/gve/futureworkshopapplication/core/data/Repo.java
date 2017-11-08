@@ -1,13 +1,18 @@
 package com.gve.futureworkshopapplication.core.data;
 
-import java.util.List;
-
 import io.reactivex.Completable;
 import io.reactivex.Flowable;
+import io.reactivex.Single;
 
 public interface Repo<Value> {
 
-    Completable fetch();
+    Completable fetch(int id);
 
-    Flowable<List<Value>> getStream();
+    Flowable<Value> getStream(int id);
+
+    Single<Value> getSingle(int id);
+
+    void store(Value v);
+
+    void delete(Value v);
 }

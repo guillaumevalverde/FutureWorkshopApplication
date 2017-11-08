@@ -3,6 +3,7 @@ package com.gve.futureworkshopapplication.articledetail.data;
 import com.gve.futureworkshopapplication.articlelist.data.Article;
 import com.gve.futureworkshopapplication.articlelist.data.MapperArticle;
 import com.gve.futureworkshopapplication.articlelist.data.RetrofitApiService;
+import com.gve.futureworkshopapplication.core.data.Repo;
 
 import javax.inject.Inject;
 
@@ -14,7 +15,7 @@ import io.reactivex.Single;
  * Created by gve on 07/11/2017.
  */
 
-public class ArticleDetailRepo {
+public class ArticleDetailRepo implements Repo<Article> {
 
     RetrofitApiService retrofitApiService;
     ArticleStore articleStore;
@@ -25,29 +26,35 @@ public class ArticleDetailRepo {
         this.retrofitApiService = retrofitApiService;
     }
 
-    public Flowable<Article> getArticle(int id) {
+    @Override
+    public Flowable<Article> getStream(int id) {
         return articleStore.getArticleFlowable(id);
     }
 
-    public Completable fetchArticle(int id) {
+    @Override
+    public Completable fetch(int id) {
         return  Single.just(id)
                 .flatMap(idA -> articleStore.getArticleSingle(idA)
                                 .onErrorResumeNext(ee -> retrofitApiService.getArticle("" + id)
                                     .map(MapperArticle.mapperArticleDetailRawToArticle)
-                                    .doOnSuccess(this::storeArticle))
+                                    .doOnSuccess(this::store))
                 )
                 .toCompletable();
     }
 
-    public void storeArticle(Article article) {
+    @Override
+    public void store(Article article) {
         articleStore.saveArticle(article);
     }
 
-    public void deleteArticle(Article article) {
+    @Override
+    public void delete(Article article) {
         articleStore.deleteArticle(article);
     }
 
-    public Single<Article> getArticleSingle(int id) {
+    @Override
+    public Single<Article> getSingle(int id) {
         return articleStore.getArticleSingle(id);
     }
+
 }

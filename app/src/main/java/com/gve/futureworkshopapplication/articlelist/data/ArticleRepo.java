@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.gve.futureworkshopapplication.core.data.ReactiveStore;
 import com.gve.futureworkshopapplication.core.data.Repo;
+import com.gve.futureworkshopapplication.core.data.RepoList;
 
 import java.util.Date;
 import java.util.List;
@@ -20,7 +21,7 @@ import io.reactivex.disposables.CompositeDisposable;
  * Created by gve on 01/11/2017.
  */
 
-public class ArticleRepo implements Repo<Article> {
+public class ArticleRepo implements RepoList<Article> {
 
     private ApiNetworkService fetcher;
     private ReactiveStore<Article> sharedPreferenceStore;

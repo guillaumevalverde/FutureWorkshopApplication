@@ -36,7 +36,7 @@ public class ArticleDetailRepoTest extends BaseTest {
         ArticleDetailRepo articleDetailRepo = new ArticleDetailRepo(retrofitApiService, articleStore);
         Mockito.when(articleStore.getArticleSingle(100)).thenReturn(Single.just(article));
 
-        TestObserver testObserver = articleDetailRepo.fetchArticle(100).test();
+        TestObserver testObserver = articleDetailRepo.fetch(100).test();
         testObserver.assertComplete();
         testObserver.assertNoErrors();
     }
@@ -46,7 +46,7 @@ public class ArticleDetailRepoTest extends BaseTest {
         ArticleDetailRepo articleDetailRepo = new ArticleDetailRepo(retrofitApiService, articleStore);
         Mockito.when(articleStore.getArticleSingle(100)).thenReturn(Single.error(new EmptyResultSetException("no article")));
         Mockito.when(retrofitApiService.getArticle("" + 100)).thenReturn(Single.just(articleRaw));
-        TestObserver testObserver = articleDetailRepo.fetchArticle(100).test();
+        TestObserver testObserver = articleDetailRepo.fetch(100).test();
         testObserver.assertComplete();
         testObserver.assertNoErrors();
     }
