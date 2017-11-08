@@ -1,9 +1,9 @@
-package com.gve.futureworkshopapplication.userarticle.presentation;
+package com.gve.futureworkshopapplication.articlelist.presentation;
 
 import android.support.annotation.NonNull;
 
 import com.gve.futureworkshopapplication.core.recyclerview.DisplayableItem;
-import com.gve.futureworkshopapplication.userarticle.data.Article;
+import com.gve.futureworkshopapplication.articlelist.data.Article;
 
 import java.util.List;
 
@@ -32,6 +32,6 @@ public class ArticleDisplayableMapper implements Function<List<Article>, List<Di
     }
 
     private DisplayableItem wrapInDisplayableItem(Article viewEntity) {
-        return toDisplayableItem(viewEntity, DataImageConstant.ARTICLE_CARD_TYPE);
+        return toDisplayableItem(viewEntity, ArticleConstant.ARTICLE_CARD_TYPE);
     }
 }

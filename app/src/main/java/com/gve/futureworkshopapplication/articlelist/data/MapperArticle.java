@@ -1,4 +1,4 @@
-package com.gve.futureworkshopapplication.userarticle.data;
+package com.gve.futureworkshopapplication.articlelist.data;
 
 
 import io.reactivex.functions.Function;

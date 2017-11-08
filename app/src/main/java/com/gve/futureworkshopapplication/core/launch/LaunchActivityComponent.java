@@ -2,8 +2,8 @@ package com.gve.futureworkshopapplication.core.launch;
 
 import com.gve.futureworkshopapplication.core.app.SubcomponentBuilder;
 import com.gve.futureworkshopapplication.core.injection.scopes.ActivityScope;
-import com.gve.futureworkshopapplication.userarticle.presentation.ListArticleActivity;
-import com.gve.futureworkshopapplication.userarticle.presentation.RecyclerViewActivityModule;
+import com.gve.futureworkshopapplication.articlelist.presentation.ListArticleActivity;
+import com.gve.futureworkshopapplication.articlelist.presentation.RecyclerViewActivityModule;
 
 import dagger.Subcomponent;
 

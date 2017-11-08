@@ -13,7 +13,7 @@ import com.gve.futureworkshopapplication.core.app.BootCampApp;
 import com.gve.futureworkshopapplication.core.UserManager;
 import com.gve.futureworkshopapplication.loginuser.domain.LoginViewModel;
 import com.gve.futureworkshopapplication.loginuser.domain.UserStateView;
-import com.gve.futureworkshopapplication.userarticle.presentation.ListArticleActivity;
+import com.gve.futureworkshopapplication.articlelist.presentation.ListArticleActivity;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.squareup.picasso.Picasso;
 

@@ -1,4 +1,4 @@
-package com.gve.futureworkshopapplication.userarticle.presentation;
+package com.gve.futureworkshopapplication.articlelist.presentation;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,7 +17,7 @@ import com.gve.futureworkshopapplication.core.injection.qualifiers.ForActivity;
 import com.gve.futureworkshopapplication.core.recyclerview.DisplayableItem;
 import com.gve.futureworkshopapplication.core.recyclerview.ViewHolderBinder;
 import com.gve.futureworkshopapplication.core.recyclerview.ViewHolderFactory;
-import com.gve.futureworkshopapplication.userarticle.data.Article;
+import com.gve.futureworkshopapplication.articlelist.data.Article;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;

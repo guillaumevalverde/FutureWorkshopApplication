@@ -1,4 +1,4 @@
-package com.gve.futureworkshopapplication.userarticle.presentation;
+package com.gve.futureworkshopapplication.articlelist.presentation;
 
 import android.content.Context;
 

@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.util.Pair;
 
 import com.google.gson.Gson;
-import com.gve.futureworkshopapplication.userarticle.data.Article;
+import com.gve.futureworkshopapplication.articlelist.data.Article;
 
 import java.util.Date;
 import java.util.List;

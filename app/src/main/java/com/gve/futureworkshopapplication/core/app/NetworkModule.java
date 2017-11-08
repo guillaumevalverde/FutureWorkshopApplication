@@ -3,8 +3,8 @@ package com.gve.futureworkshopapplication.core.app;
 import com.google.gson.Gson;
 import com.gve.futureworkshopapplication.BuildConfig;
 import com.gve.futureworkshopapplication.InstrumentationModule;
-import com.gve.futureworkshopapplication.userarticle.data.ApiNetworkService;
-import com.gve.futureworkshopapplication.userarticle.data.RetrofitApiService;
+import com.gve.futureworkshopapplication.articlelist.data.ApiNetworkService;
+import com.gve.futureworkshopapplication.articlelist.data.RetrofitApiService;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.lang.annotation.Retention;

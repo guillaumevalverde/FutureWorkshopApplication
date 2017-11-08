@@ -17,7 +17,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".loginuser.presentation.LoginUserActivity"
                   android:launchMode="singleTask"/>
-        <activity android:name=".userarticle.presentation.ListArticleActivity" />
+        <activity android:name=".articlelist.presentation.ListArticleActivity" />
         <activity
             android:name=".core.launch.LaunchActivity"
             android:theme="@android:style/Theme.NoDisplay"

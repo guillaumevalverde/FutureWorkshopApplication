@@ -8,7 +8,7 @@ import com.gve.futureworkshopapplication.R;
 import com.gve.futureworkshopapplication.core.app.BootCampApp;
 import com.gve.futureworkshopapplication.loginuser.presentation.LoginUserActivity;
 import com.gve.futureworkshopapplication.core.UserManager;
-import com.gve.futureworkshopapplication.userarticle.presentation.ListArticleActivity;
+import com.gve.futureworkshopapplication.articlelist.presentation.ListArticleActivity;
 
 import javax.inject.Inject;
 

@@ -1,4 +1,4 @@
-package com.gve.futureworkshopapplication.userarticle.presentation;
+package com.gve.futureworkshopapplication.articlelist.presentation;
 
 import com.gve.futureworkshopapplication.core.preconditions.AndroidPreconditions;
 import com.gve.futureworkshopapplication.core.recyclerview.ItemComparator;
@@ -14,7 +14,7 @@ import dagger.Provides;
 import dagger.multibindings.IntKey;
 import dagger.multibindings.IntoMap;
 
-import static com.gve.futureworkshopapplication.userarticle.presentation.DataImageConstant.ARTICLE_CARD_TYPE;
+import static com.gve.futureworkshopapplication.articlelist.presentation.ArticleConstant.ARTICLE_CARD_TYPE;
 
 /**
  * Created by gve on 26/10/2017.

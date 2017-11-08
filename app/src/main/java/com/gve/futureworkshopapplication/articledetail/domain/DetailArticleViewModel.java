@@ -1,10 +1,10 @@
 package com.gve.futureworkshopapplication.articledetail.domain;
 
 import com.gve.futureworkshopapplication.articledetail.data.ArticleDetailRepo;
-import com.gve.futureworkshopapplication.userarticle.data.Article;
-import com.gve.futureworkshopapplication.userarticle.data.ArticleRepo;
-import com.gve.futureworkshopapplication.userarticle.data.MapperArticle;
-import com.gve.futureworkshopapplication.userarticle.data.RetrofitApiService;
+import com.gve.futureworkshopapplication.articlelist.data.Article;
+import com.gve.futureworkshopapplication.articlelist.data.ArticleRepo;
+import com.gve.futureworkshopapplication.articlelist.data.MapperArticle;
+import com.gve.futureworkshopapplication.articlelist.data.RetrofitApiService;
 
 import io.reactivex.Completable;
 import io.reactivex.Flowable;

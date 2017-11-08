@@ -1,4 +1,4 @@
-package com.gve.futureworkshopapplication.userarticle.presentation;
+package com.gve.futureworkshopapplication.articlelist.presentation;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +19,7 @@ import com.gve.futureworkshopapplication.core.recyclerview.RecyclerViewAdapter;
 import com.gve.futureworkshopapplication.loginuser.presentation.LoginUserActivity;
 import com.gve.futureworkshopapplication.core.UserManager;
 import com.gve.futureworkshopapplication.loginuser.data.User;
-import com.gve.futureworkshopapplication.userarticle.domain.ListArticleViewModel;
+import com.gve.futureworkshopapplication.articlelist.domain.ListArticleViewModel;
 
 import javax.inject.Inject;
 

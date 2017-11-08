@@ -5,9 +5,9 @@ import android.arch.persistence.room.EmptyResultSetException;
 import com.gve.futureworkshopapplication.articledetail.data.ArticleDetailRepo;
 import com.gve.futureworkshopapplication.articledetail.data.ArticleStore;
 import com.gve.futureworkshopapplication.test_common.BaseTest;
-import com.gve.futureworkshopapplication.userarticle.data.Article;
-import com.gve.futureworkshopapplication.userarticle.data.ArticleDetailRaw;
-import com.gve.futureworkshopapplication.userarticle.data.RetrofitApiService;
+import com.gve.futureworkshopapplication.articlelist.data.Article;
+import com.gve.futureworkshopapplication.articlelist.data.ArticleDetailRaw;
+import com.gve.futureworkshopapplication.articlelist.data.RetrofitApiService;
 
 import org.junit.Test;
 import org.mockito.Mock;

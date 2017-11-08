@@ -14,7 +14,7 @@ import com.gve.futureworkshopapplication.core.data.SharedPreferenceStore;
 import com.gve.futureworkshopapplication.core.injection.qualifiers.ForApplication;
 import com.gve.futureworkshopapplication.loginuser.data.MockUserProvider;
 import com.gve.futureworkshopapplication.loginuser.data.UserAPI;
-import com.gve.futureworkshopapplication.userarticle.data.Article;
+import com.gve.futureworkshopapplication.articlelist.data.Article;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Singleton;

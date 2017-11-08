@@ -6,7 +6,7 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import com.gve.futureworkshopapplication.articledetail.data.ArticleModelDao;
-import com.gve.futureworkshopapplication.userarticle.data.Article;
+import com.gve.futureworkshopapplication.articlelist.data.Article;
 
 /**
  * Created by gve on 07/11/2017.

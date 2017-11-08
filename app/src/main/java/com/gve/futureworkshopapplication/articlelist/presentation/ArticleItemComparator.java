@@ -1,4 +1,4 @@
-package com.gve.futureworkshopapplication.userarticle.presentation;
+package com.gve.futureworkshopapplication.articlelist.presentation;
 
 import com.gve.futureworkshopapplication.core.recyclerview.DisplayableItem;
 import com.gve.futureworkshopapplication.core.recyclerview.ItemComparator;

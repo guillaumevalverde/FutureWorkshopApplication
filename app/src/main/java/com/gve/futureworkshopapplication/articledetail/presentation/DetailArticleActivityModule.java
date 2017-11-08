@@ -6,8 +6,8 @@ import com.gve.futureworkshopapplication.articledetail.data.ArticleDetailRepo;
 import com.gve.futureworkshopapplication.articledetail.domain.DetailArticleViewModel;
 import com.gve.futureworkshopapplication.core.injection.qualifiers.ForActivity;
 import com.gve.futureworkshopapplication.core.injection.scopes.ActivityScope;
-import com.gve.futureworkshopapplication.userarticle.data.ArticleRepo;
-import com.gve.futureworkshopapplication.userarticle.data.RetrofitApiService;
+import com.gve.futureworkshopapplication.articlelist.data.ArticleRepo;
+import com.gve.futureworkshopapplication.articlelist.data.RetrofitApiService;
 
 import dagger.Module;
 import dagger.Provides;

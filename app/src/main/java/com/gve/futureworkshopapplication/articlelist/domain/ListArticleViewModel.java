@@ -1,11 +1,11 @@
-package com.gve.futureworkshopapplication.userarticle.domain;
+package com.gve.futureworkshopapplication.articlelist.domain;
 
 
 import android.support.annotation.NonNull;
 
 import com.gve.futureworkshopapplication.core.recyclerview.DisplayableItem;
-import com.gve.futureworkshopapplication.userarticle.data.ArticleRepo;
-import com.gve.futureworkshopapplication.userarticle.presentation.ArticleDisplayableMapper;
+import com.gve.futureworkshopapplication.articlelist.data.ArticleRepo;
+import com.gve.futureworkshopapplication.articlelist.presentation.ArticleDisplayableMapper;
 
 import java.util.List;
 

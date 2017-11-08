@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.gve.futureworkshopapplication.core.data.AppDataBase;
 import com.gve.futureworkshopapplication.core.injection.qualifiers.ForApplication;
-import com.gve.futureworkshopapplication.userarticle.data.Article;
+import com.gve.futureworkshopapplication.articlelist.data.Article;
 
 import javax.inject.Inject;
 

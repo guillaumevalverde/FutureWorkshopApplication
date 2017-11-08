@@ -13,7 +13,7 @@ import com.gve.futureworkshopapplication.articledetail.domain.DetailArticleViewM
 import com.gve.futureworkshopapplication.core.app.BootCampApp;
 import com.gve.futureworkshopapplication.core.injection.qualifiers.ForActivity;
 import com.gve.futureworkshopapplication.core.UserManager;
-import com.gve.futureworkshopapplication.userarticle.data.Article;
+import com.gve.futureworkshopapplication.articlelist.data.Article;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;

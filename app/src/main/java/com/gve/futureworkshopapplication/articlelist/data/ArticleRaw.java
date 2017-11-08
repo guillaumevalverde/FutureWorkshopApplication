@@ -1,4 +1,4 @@
-package com.gve.futureworkshopapplication.userarticle.data;
+package com.gve.futureworkshopapplication.articlelist.data;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,7 +13,7 @@ import com.google.gson.annotations.SerializedName;
  */
 
 @AutoValue
-public abstract class ArticleDetailRaw {
+public abstract class ArticleRaw {
 
     @NonNull
     public abstract int id();
@@ -22,11 +22,11 @@ public abstract class ArticleDetailRaw {
     public abstract String title();
 
     @Nullable
-    @SerializedName("image_url")
-    public abstract String imageUrl();
+    @SerializedName("icon_url")
+    public abstract String iconUrl();
 
     @Nullable
-    public abstract String source();
+    public abstract String summary();
 
     @Nullable
     public abstract String content();
@@ -35,35 +35,35 @@ public abstract class ArticleDetailRaw {
     public abstract String date();
 
     @NonNull
-    public static TypeAdapter<ArticleDetailRaw> typeAdapter(@NonNull final Gson gson) {
-        return new AutoValue_ArticleDetailRaw.GsonTypeAdapter(gson);
+    public static TypeAdapter<ArticleRaw> typeAdapter(@NonNull final Gson gson) {
+        return new AutoValue_ArticleRaw.GsonTypeAdapter(gson);
     }
 
     @NonNull
     public static Builder builder() {
-        return new AutoValue_ArticleDetailRaw.Builder();
+        return new AutoValue_ArticleRaw.Builder();
     }
 
     @AutoValue.Builder
     public interface Builder {
 
-        Builder id(final int title);
+        Builder id(final int id);
 
         Builder title(final String title);
 
-        Builder imageUrl(final String imageUrl);
+        Builder iconUrl(final String url);
 
-        Builder source(final String source);
+        Builder summary(final String summary);
 
         Builder content(final String content);
 
         Builder date(final String date);
 
-        ArticleDetailRaw build();
+        ArticleRaw build();
     }
 
     public String toString(){
-        return "Article " + id() + ", " + title() + ", " + source() + ", " + content() + "\n"
-                + date() + ", " + imageUrl();
+        return "Article " + id() + ", " + title() + ", " + summary() + ", " + content() + "\n"
+                + date() + ", " + iconUrl();
     }
 }

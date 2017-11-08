@@ -1,10 +1,8 @@
 package com.gve.futureworkshopapplication.articledetail.data;
 
-import android.database.Observable;
-
-import com.gve.futureworkshopapplication.userarticle.data.Article;
-import com.gve.futureworkshopapplication.userarticle.data.MapperArticle;
-import com.gve.futureworkshopapplication.userarticle.data.RetrofitApiService;
+import com.gve.futureworkshopapplication.articlelist.data.Article;
+import com.gve.futureworkshopapplication.articlelist.data.MapperArticle;
+import com.gve.futureworkshopapplication.articlelist.data.RetrofitApiService;
 
 import javax.inject.Inject;
 

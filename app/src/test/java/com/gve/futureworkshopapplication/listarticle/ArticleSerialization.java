@@ -3,11 +3,11 @@ package com.gve.futureworkshopapplication.listarticle;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.gve.futureworkshopapplication.core.app.DataAdapterFactory;
-import com.gve.futureworkshopapplication.userarticle.data.Article;
-import com.gve.futureworkshopapplication.userarticle.data.ArticleDetailRaw;
-import com.gve.futureworkshopapplication.userarticle.data.ArticleRaw;
-import com.gve.futureworkshopapplication.userarticle.data.ListArticle;
-import com.gve.futureworkshopapplication.userarticle.data.MapperArticle;
+import com.gve.futureworkshopapplication.articlelist.data.Article;
+import com.gve.futureworkshopapplication.articlelist.data.ArticleDetailRaw;
+import com.gve.futureworkshopapplication.articlelist.data.ArticleRaw;
+import com.gve.futureworkshopapplication.articlelist.data.ListArticle;
+import com.gve.futureworkshopapplication.articlelist.data.MapperArticle;
 
 import org.junit.Before;
 import org.junit.Test;
