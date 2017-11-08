@@ -1,4 +1,4 @@
-package com.gve.futureworkshopapplication.articledetail;
+package com.gve.futureworkshopapplication.articledetail.presentation;
 
 import com.gve.futureworkshopapplication.core.app.SubcomponentBuilder;
 import com.gve.futureworkshopapplication.core.injection.scopes.ActivityScope;

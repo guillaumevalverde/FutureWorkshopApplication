@@ -12,6 +12,12 @@ android {
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "API_URL", FUTURE_WORKSHOP_API_URL
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
     }
     signingConfigs {
         debug {
@@ -39,7 +45,7 @@ android {
 
 ext {
     dependencyVersions = [
-            androidSupport          : '26.0.0',
+            androidSupport          : '26.1.0',
             androidSupportConstraint: '1.0.2',
             androidSupportTest      : '1.0.0',
             dagger2                 : '2.11',
@@ -147,5 +153,16 @@ dependencies {
 
     //picasso Transformation
     implementation "jp.wasabeef:picasso-transformations:$dependencyVersions.picassoTransform"
+
+    compile "android.arch.lifecycle:extensions:1.0.0"
+    compile "android.arch.persistence.room:runtime:1.0.0"
+    annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+
+    // RxJava support for Room
+    implementation "android.arch.persistence.room:rxjava2:1.0.0"
+    // Testing support
+    androidTestImplementation "android.arch.core:core-testing:1.0.0"
+
 
 }

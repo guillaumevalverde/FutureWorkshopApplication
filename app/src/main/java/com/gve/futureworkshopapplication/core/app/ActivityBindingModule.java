@@ -1,6 +1,6 @@
 package com.gve.futureworkshopapplication.core.app;
 
-import com.gve.futureworkshopapplication.articledetail.DetailArticleActivityComponent;
+import com.gve.futureworkshopapplication.articledetail.presentation.DetailArticleActivityComponent;
 import com.gve.futureworkshopapplication.core.launch.LaunchActivityComponent;
 import com.gve.futureworkshopapplication.loginuser.injection.LoginActivityComponent;
 import com.gve.futureworkshopapplication.userarticle.presentation.ListArticleActivityComponent;
@@ -25,7 +25,6 @@ public abstract class ActivityBindingModule {
     @Binds @IntoMap
     @DaggerUtil.SubcomponentKey(LoginActivityComponent.Builder.class)
     public abstract SubcomponentBuilder loginActivity(LoginActivityComponent.Builder impl);
-
 
     @Binds @IntoMap
     @DaggerUtil.SubcomponentKey(ListArticleActivityComponent.Builder.class)

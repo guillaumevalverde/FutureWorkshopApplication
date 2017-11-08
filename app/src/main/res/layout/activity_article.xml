@@ -17,7 +17,7 @@
         app:titleTextColor="@android:color/black">
 
         <TextView
-            android:id="@+id/toolbar_title"
+            android:id="@+id/toolbar_article_detail_title"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,12 +28,15 @@
             android:ellipsize="end"
             tools:text="Toolbar Title" />
 
-        <Button
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+        <ImageView
+            android:id="@+id/toolbar_article_detail_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="12dp"
             android:layout_marginRight="@dimen/spacing_tiny"
             android:layout_gravity="right"
-            android:background="@drawable/star_unselected" />
+            android:src="@drawable/star_unselected"
+             />
 
     </android.support.v7.widget.Toolbar>
 

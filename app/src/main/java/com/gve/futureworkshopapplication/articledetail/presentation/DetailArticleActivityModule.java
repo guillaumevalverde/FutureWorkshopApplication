@@ -1,9 +1,12 @@
-package com.gve.futureworkshopapplication.articledetail;
+package com.gve.futureworkshopapplication.articledetail.presentation;
 
 import android.content.Context;
 
+import com.gve.futureworkshopapplication.articledetail.data.ArticleDetailRepo;
+import com.gve.futureworkshopapplication.articledetail.domain.DetailArticleViewModel;
 import com.gve.futureworkshopapplication.core.injection.qualifiers.ForActivity;
 import com.gve.futureworkshopapplication.core.injection.scopes.ActivityScope;
+import com.gve.futureworkshopapplication.userarticle.data.ArticleRepo;
 import com.gve.futureworkshopapplication.userarticle.data.RetrofitApiService;
 
 import dagger.Module;
@@ -32,7 +35,7 @@ public class DetailArticleActivityModule {
 
     @Provides
     @ActivityScope
-    public DetailArticleViewModel provide(RetrofitApiService retrofitApiService) {
-        return new DetailArticleViewModel(retrofitApiService);
+    public DetailArticleViewModel provide(ArticleDetailRepo articleRepo) {
+        return new DetailArticleViewModel(articleRepo);
     }
 }

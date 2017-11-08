@@ -1,21 +1,18 @@
-package com.gve.futureworkshopapplication.articledetail;
+package com.gve.futureworkshopapplication.articledetail.presentation;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gve.futureworkshopapplication.R;
+import com.gve.futureworkshopapplication.articledetail.domain.DetailArticleViewModel;
 import com.gve.futureworkshopapplication.core.app.BootCampApp;
 import com.gve.futureworkshopapplication.core.injection.qualifiers.ForActivity;
-import com.gve.futureworkshopapplication.loginuser.LoginUserActivity;
 import com.gve.futureworkshopapplication.loginuser.UserManager;
-import com.gve.futureworkshopapplication.loginuser.data.User;
 import com.gve.futureworkshopapplication.userarticle.data.Article;
 import com.squareup.picasso.Picasso;
 
@@ -55,6 +52,7 @@ public class DetailArticleActivity extends AppCompatActivity {
     private TextView sourceDateTV;
     private TextView contentTV;
     private TextView titleToolBar;
+    private ImageView buttonToolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,30 +73,24 @@ public class DetailArticleActivity extends AppCompatActivity {
         contentTV = findViewById(R.id.article_detail_content);
 
         articleId = getIntent().getExtras().getInt(ARTICLE_ID);
-        String userName = userManager.getUser().orDefault(()
-                -> User.builder().name("userName").build()).name();
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        titleToolBar = toolbar.findViewById(R.id.toolbar_title);
+        titleToolBar = toolbar.findViewById(R.id.toolbar_article_detail_title);
+        buttonToolBar = toolbar.findViewById(R.id.toolbar_article_detail_button);
 
-        toolbar.setOnMenuItemClickListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.action_log_out:
-                    userManager.closeUserSession();
-                    Intent intent = new Intent(this, LoginUserActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    context.startActivity(intent);
-                    return true;
+        buttonToolBar.setOnClickListener(click ->
+                disposable.add(viewModel.changeFavourite(articleId)
+                        .subscribe(() -> Log.v(TAG, "changeFavourite complete"),
+                                error -> Log.e(TAG, "changeFavourite error: "
+                                        + error.getMessage()))));
 
-                default:
-                    return false;
-
-            }
-        });
-
-        disposable.add(viewModel.fetchArticle("" + articleId)
+        disposable.add(viewModel.fetchArticle(articleId)
+                .subscribe(() -> Log.v(TAG, "fectch complete"),
+                        error -> Log.e(TAG, "fetch error: " + error.getMessage())));
+        disposable.add(viewModel.getArticleFlowable(articleId)
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe(this::setUpUi,
@@ -117,6 +109,9 @@ public class DetailArticleActivity extends AppCompatActivity {
                 .getString(R.string.article_source_date, article.source(), article.date()));
         contentTV.setText(article.content());
         titleToolBar.setText(article.title());
+        buttonToolBar.setImageDrawable(this.getResources().getDrawable(article.isFavourite()
+                ? R.drawable.star_selected
+                : R.drawable.star_unselected, null));
 
         picasso.load(article.imageUrl())
                 .placeholder(R.color.background_card)

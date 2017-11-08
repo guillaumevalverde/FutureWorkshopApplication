@@ -12,7 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.gve.futureworkshopapplication.R;
-import com.gve.futureworkshopapplication.articledetail.DetailArticleActivity;
+import com.gve.futureworkshopapplication.articledetail.presentation.DetailArticleActivity;
 import com.gve.futureworkshopapplication.core.injection.qualifiers.ForActivity;
 import com.gve.futureworkshopapplication.core.recyclerview.DisplayableItem;
 import com.gve.futureworkshopapplication.core.recyclerview.ViewHolderBinder;
