@@ -1,8 +1,9 @@
 package com.gve.futureworkshopapplication;
 
-import com.gve.futureworkshopapplication.loginuser.LoginUserActivity;
+import com.gve.futureworkshopapplication.loginuser.domain.LoginViewModel;
 import com.gve.futureworkshopapplication.loginuser.data.MockUserProvider;
 import com.gve.futureworkshopapplication.loginuser.data.User;
+import com.gve.futureworkshopapplication.loginuser.domain.UserStateView;
 import com.gve.futureworkshopapplication.test_common.BaseTest;
 
 import org.junit.Before;
@@ -19,8 +20,6 @@ import polanski.option.Option;
 public class LogInTest extends BaseTest {
 
     private BehaviorSubject<Object> clickObservable;
-    private User guillaume = User.builder().name("guillaume").build();
-
 
     @Before
     public void setUp() {
@@ -29,7 +28,7 @@ public class LogInTest extends BaseTest {
 
     @Test
     public void clickUserNameTest() {
-        TestObserver testObserver = LoginUserActivity.getUserStateViewObs(clickObservable,
+        TestObserver testObserver = LoginViewModel.getUserStateViewObs(clickObservable,
                 () -> "guillaume",
                 (username) -> (new MockUserProvider()).getUser(username)).test();
         clickObservable.onNext(null);
@@ -38,7 +37,7 @@ public class LogInTest extends BaseTest {
 
     @Test
     public void clickWithRightUserNameTest() {
-        TestObserver<LoginUserActivity.UserStateView> testObserver = LoginUserActivity.getUserStateViewObs(clickObservable,
+        TestObserver<UserStateView> testObserver = LoginViewModel.getUserStateViewObs(clickObservable,
                 () -> "guillaume",
                 (username) -> (new MockUserProvider()).getUser(username)).test();
         clickObservable.onNext(Option.none());
@@ -46,7 +45,7 @@ public class LogInTest extends BaseTest {
 
         testObserver.assertValueAt(0, user -> {
             System.out.println("user: " + user.toString());
-            return user.state == LoginUserActivity.UserStateView.USER_OK;
+            return user.state == UserStateView.USER_OK;
         });
         testObserver.assertValueAt(0, user -> {
             System.out.println("user: " + user.toString());
@@ -57,7 +56,7 @@ public class LogInTest extends BaseTest {
 
     @Test
     public void clickWithWrongUserNameTest() {
-        TestObserver<LoginUserActivity.UserStateView> testObserver = LoginUserActivity.getUserStateViewObs(clickObservable,
+        TestObserver<UserStateView> testObserver = LoginViewModel.getUserStateViewObs(clickObservable,
                 () -> "gerard",
                 (username) -> (new MockUserProvider()).getUser(username)).test();
         clickObservable.onNext(Option.none());
@@ -65,7 +64,7 @@ public class LogInTest extends BaseTest {
         testObserver.assertNotComplete();
         testObserver.assertValueAt(0, user -> {
             System.out.println("user: " + user.toString());
-            return user.state == LoginUserActivity.UserStateView.ERROR_NO_EXISTING_USER;
+            return user.state == UserStateView.ERROR_NO_EXISTING_USER;
         });
     }
 

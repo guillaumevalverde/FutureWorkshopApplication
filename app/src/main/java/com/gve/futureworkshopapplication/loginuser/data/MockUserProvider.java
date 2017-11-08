@@ -6,6 +6,11 @@ import io.reactivex.Single;
  * Created by gve on 06/11/2017.
  */
 
+
+/**
+ * this class mock an api to get a user.
+ * Only guillaume is a recognised user.
+ */
 public class MockUserProvider implements UserAPI {
     private static final String EXISTING_USER = "guillaume";
 

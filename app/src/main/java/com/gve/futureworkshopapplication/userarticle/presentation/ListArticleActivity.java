@@ -16,8 +16,8 @@ import com.gve.futureworkshopapplication.R;
 import com.gve.futureworkshopapplication.core.app.BootCampApp;
 import com.gve.futureworkshopapplication.core.injection.qualifiers.ForActivity;
 import com.gve.futureworkshopapplication.core.recyclerview.RecyclerViewAdapter;
-import com.gve.futureworkshopapplication.loginuser.LoginUserActivity;
-import com.gve.futureworkshopapplication.loginuser.UserManager;
+import com.gve.futureworkshopapplication.loginuser.presentation.LoginUserActivity;
+import com.gve.futureworkshopapplication.core.UserManager;
 import com.gve.futureworkshopapplication.loginuser.data.User;
 import com.gve.futureworkshopapplication.userarticle.domain.ListArticleViewModel;
 

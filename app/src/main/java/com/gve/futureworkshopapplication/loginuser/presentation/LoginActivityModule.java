@@ -1,4 +1,4 @@
-package com.gve.futureworkshopapplication.loginuser.injection;
+package com.gve.futureworkshopapplication.loginuser.presentation;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.gve.futureworkshopapplication.loginuser;
+package com.gve.futureworkshopapplication.core;
 
 import com.gve.futureworkshopapplication.loginuser.data.User;
 import com.gve.futureworkshopapplication.loginuser.data.UserAPI;

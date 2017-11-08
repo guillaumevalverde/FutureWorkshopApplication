@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.gve.futureworkshopapplication.core.injection.qualifiers.ForApplication;
-import com.gve.futureworkshopapplication.loginuser.UserManager;
+import com.gve.futureworkshopapplication.core.UserManager;
 import com.gve.futureworkshopapplication.loginuser.data.UserAPI;
 import com.gve.futureworkshopapplication.loginuser.data.UserComponent;
 import com.gve.futureworkshopapplication.loginuser.data.UserDataStore;

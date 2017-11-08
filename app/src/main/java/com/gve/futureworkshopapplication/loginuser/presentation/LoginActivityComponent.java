@@ -1,8 +1,7 @@
-package com.gve.futureworkshopapplication.loginuser.injection;
+package com.gve.futureworkshopapplication.loginuser.presentation;
 
 import com.gve.futureworkshopapplication.core.app.SubcomponentBuilder;
 import com.gve.futureworkshopapplication.core.injection.scopes.ActivityScope;
-import com.gve.futureworkshopapplication.loginuser.LoginUserActivity;
 
 import dagger.Subcomponent;
 

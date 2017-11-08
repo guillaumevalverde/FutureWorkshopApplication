@@ -2,7 +2,7 @@ package com.gve.futureworkshopapplication.core.app;
 
 import com.gve.futureworkshopapplication.articledetail.presentation.DetailArticleActivityComponent;
 import com.gve.futureworkshopapplication.core.launch.LaunchActivityComponent;
-import com.gve.futureworkshopapplication.loginuser.injection.LoginActivityComponent;
+import com.gve.futureworkshopapplication.loginuser.presentation.LoginActivityComponent;
 import com.gve.futureworkshopapplication.userarticle.presentation.ListArticleActivityComponent;
 
 import dagger.Binds;
