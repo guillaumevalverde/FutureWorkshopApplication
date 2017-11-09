@@ -42,5 +42,13 @@ It also resize the image accordingly in order not to lose memory.
 **The user login api is mocked, only user with username "guillaume" is recognised.**
 
 
+## Improvement
+* Use one common Article Store
+First the activity displaying list has been implemented using a simple Store backed up with shared pref,
+then for the DetailArticle activity i wanted to try Room so i implemented a stoare backed up with it
+
+* create specific card for article card in recyclerView to have a flat structure
+
+* add message when no network and list is empty
 
 
