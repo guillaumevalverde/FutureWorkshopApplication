@@ -1,11 +1,10 @@
-package com.gve.futureworkshopapplication.core.data;
+package com.gve.futureworkshopapplication.articlelist.data;
 
 import android.support.annotation.NonNull;
 
 import com.google.auto.value.AutoValue;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
-import com.gve.futureworkshopapplication.articlelist.data.Article;
 
 import java.util.List;
 

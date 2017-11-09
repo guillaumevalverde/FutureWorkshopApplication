@@ -1,16 +1,13 @@
 package com.gve.futureworkshopapplication.core.app;
 
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 
 import com.google.gson.Gson;
 import com.gve.futureworkshopapplication.BuildConfig;
-import com.gve.futureworkshopapplication.core.data.AppDataBase;
 import com.gve.futureworkshopapplication.core.data.ReactiveStore;
-import com.gve.futureworkshopapplication.core.data.SharedPreferenceStore;
+import com.gve.futureworkshopapplication.articlelist.data.SharedPreferenceStore;
 import com.gve.futureworkshopapplication.core.injection.qualifiers.ForApplication;
 import com.gve.futureworkshopapplication.loginuser.data.MockUserProvider;
 import com.gve.futureworkshopapplication.loginuser.data.UserAPI;

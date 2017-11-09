@@ -1,12 +1,12 @@
-package com.gve.futureworkshopapplication.core.data;
+package com.gve.futureworkshopapplication.articlelist.data;
 
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v4.util.Pair;
-import android.util.Log;
 
 import com.google.gson.Gson;
-import com.gve.futureworkshopapplication.articlelist.data.Article;
+
+import com.gve.futureworkshopapplication.core.data.ReactiveStore;
 
 import java.util.Date;
 import java.util.List;
