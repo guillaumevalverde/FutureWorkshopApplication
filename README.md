@@ -4,7 +4,12 @@
 Rxjava2, dagger2 help in the set-up of the architecture. 
 Stetho and Chuck as usefult devtool, build variant debug and release and injecttion are used to set it up correctly
 
-##Architecture
+in debug mode, picasso shows color on each image to understant from which cache it comes from:
+* red from network
+* blue from disk
+* green from cach memmory
+
+## Architecture
 
 The Architecture has 3 layers:
 * Data
