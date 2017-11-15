@@ -64,6 +64,7 @@ public class UserManager {
 
     public void closeUserSession() {
         Timber.i("Close session for user: %s", userDataStore.getUser());
+        user = null;
         userDataStore.clearUser();
         userComponent = null;
     }

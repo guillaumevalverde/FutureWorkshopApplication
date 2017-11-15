@@ -93,6 +93,7 @@ public class LoginUserActivity  extends AppCompatActivity {
         Log.v(TAG, "go to next activity");
         Intent intent = new Intent(this, ListArticleActivity.class);
         this.startActivity(intent);
+        finish();
     }
 
     @Override
