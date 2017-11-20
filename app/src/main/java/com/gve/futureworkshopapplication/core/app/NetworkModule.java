@@ -1,10 +1,9 @@
 package com.gve.futureworkshopapplication.core.app;
 
 import com.google.gson.Gson;
-import com.gve.futureworkshopapplication.BuildConfig;
 import com.gve.futureworkshopapplication.InstrumentationModule;
-import com.gve.futureworkshopapplication.articlelist.data.ApiNetworkService;
 import com.gve.futureworkshopapplication.articlelist.data.RetrofitApiService;
+import com.gve.futureworkshopapplication.core.UrlConst;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.lang.annotation.Retention;
@@ -26,7 +25,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public final class NetworkModule {
 
     private static final String API_URL = "API_URL";
-    private static final String IMAGES_URL = "IMAGES_URL";
 
     @Qualifier
     @Retention(RetentionPolicy.RUNTIME)
@@ -51,7 +49,7 @@ public final class NetworkModule {
     @Provides
     @Named(API_URL)
     static String provideFutureWorkshopUrl() {
-        return BuildConfig.API_URL;
+        return UrlConst.FUTURE_WORKSHOP_API_URL;
     }
 
     @Provides
@@ -68,7 +66,7 @@ public final class NetworkModule {
 
     @Provides
     @Singleton
-    static RetrofitApiService provideApiNetworkService(Retrofit retrofit){
+    static RetrofitApiService provideApiNetworkService(Retrofit retrofit) {
         return retrofit.create(RetrofitApiService.class);
     }
 
